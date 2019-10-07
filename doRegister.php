@@ -25,7 +25,7 @@
 	        ltrim($db["path"], "/")
 	   ));
 
-		$stmt =  $pdo->prepare("INSERT INTO RegisterCourse(studentname, course, dob,gender,fav) VALUES (?,?,?,?,?)");
+		$stmt =  $pdo->prepare("INSERT INTO registercourse(studentname, course, dob,gender,fav) VALUES (?,?,?,?,?)");
 		echo $gender;
 		$stmt->bind_param("sssss",$name,$course,$birthday,$gender,$fav);
 		echo "2";			

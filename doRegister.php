@@ -12,6 +12,7 @@
 		$fav_book =$_POST["book"];
 		$fav_car = $_POST["car"];
 		$fav = $fav_book . "," . $fav_car;
+		echo $name;
 		
 		//Refere to database 
 		$db = parse_url(getenv("DATABASE_URL"));

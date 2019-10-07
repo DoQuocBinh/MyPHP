@@ -28,9 +28,9 @@
 		$stmt =  $pdo->prepare("INSERT INTO RegisterCourse(studentname, course, dob,gender,fav) VALUES (?,?,?,?,?)");
 		echo $gender;
 		$stmt->bind_param("sssss",$name,$course,$birthday,$gender,$fav);
-						
+		echo "2";			
 		$stmt->execute();
-		
+		echo "3";	
 
 	 ?>
 	 <h2>Thank you <?php echo $name?>  for registering 

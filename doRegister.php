@@ -16,20 +16,20 @@
 		
 		//Refere to database 
 		$db = parse_url(getenv("DATABASE_URL"));
-		$conn = new PDO("pgsql:" . sprintf(
-		    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-		    $db["host"],
-		    $db["port"],
-		    $db["user"],
-		    $db["pass"],
-		    ltrim($db["path"], "/")
-		));
+	   $pdo = new PDO("pgsql:" . sprintf(
+	        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+	        $db["host"],
+	        $db["port"],
+	        $db["user"],
+	        $db["pass"],
+	        ltrim($db["path"], "/")
+	   ));
 
-		$stmt =  $conn->prepare("INSERT INTO RegisterCourse(studentname, course, dob,gender,fav) VALUES (?,?,?,?,?)");
+		$stmt =  $pdo->prepare("INSERT INTO RegisterCourse(studentname, course, dob,gender,fav) VALUES (?,?,?,?,?)");
 		$stmt->bind_param("sssss",$name,$course,$birthday,
 						$gender,$fav);
 		$stmt->execute();
-		$conn->close();
+		
 
 	 ?>
 	 <h2>Thank you <?php echo $name?>  for registering 

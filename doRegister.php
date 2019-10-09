@@ -49,6 +49,6 @@
 	 	<li><?php echo $fav_book?></li>
 	 	<li><?php echo $fav_car?></li>
 	 </ul>
-	 <a href="Register.php">Back</a>
+	 <a href="index.php">Index</a>
 </body>
 </html>

@@ -15,7 +15,7 @@
 		echo $name;
 		
 		//Refere to database 
-		$db = parse_url(getenv("DATABASE_URL"));
+	   $db = parse_url(getenv("DATABASE_URL"));
 	   $pdo = new PDO("pgsql:" . sprintf(
 	        "host=%s;port=%s;user=%s;password=%s;dbname=%s",
 	        $db["host"],
@@ -24,12 +24,19 @@
 	        $db["pass"],
 	        ltrim($db["path"], "/")
 	   ));
+	   $data = [
+		    'name' => $name,
+		    'course' => $course,
+		    'dob' => $birthday,
+		    'gender' => $gender,
+		    'fav' => $fav
+		];
 
-		$stmt =  $pdo->prepare("INSERT INTO registercourse(studentname, course, dob,gender,fav) VALUES (?,?,?,?,?)");
+		$stmt =  $pdo->prepare("INSERT INTO registercourse(studentname, course, dob,gender,fav) VALUES (:name,:course,:dob,:gender,:fav)");
 		echo $gender;
-		$stmt->bind_param("sssss",$name,$course,$birthday,$gender,$fav);
+		//$stmt->bind_param("sssss",$name,$course,$birthday,$gender,$fav);
 		echo "2";			
-		$stmt->execute();
+		$stmt->execute($data);
 		echo "3";	
 
 	 ?>

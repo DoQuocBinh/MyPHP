@@ -11,7 +11,7 @@
 				<td><input type="text" name="txtName"></td>
 			</tr>
 			<tr>	
-				<td>Country</td>
+				<td>Course</td>
 				<td>
 					<select name="cbCourse">
 						<option value="C#">C#</option>

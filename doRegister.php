@@ -31,13 +31,8 @@
 		    'gender' => $gender,
 		    'fav' => $fav
 		];
-
-		$stmt =  $pdo->prepare("INSERT INTO registercourse(studentname, course, dob,gender,fav) VALUES (:name,:course,:dob,:gender,:fav)");
-		echo $gender;
-		//$stmt->bind_param("sssss",$name,$course,$birthday,$gender,$fav);
-		echo "2";			
+		$stmt =  $pdo->prepare("INSERT INTO registercourse(studentname, course, dob,gender,fav) VALUES (:name,:course,:dob,:gender,:fav)");	
 		$stmt->execute($data);
-		echo "3";	
 
 	 ?>
 	 <h2>Thank you <?php echo $name?>  for registering 
